@@ -5,7 +5,7 @@
       "fields": {
         "first_name": "Adam",
         "last_name": "Knowles",
-        "departmendId": 1,
+        "departmentId": 1,
         "is_supervisor": false
       }
     },
@@ -15,7 +15,7 @@
       "fields": {
         "first_name": "Krystal",
         "last_name": "Gates",
-        "departmendId": 2,
+        "departmentId": 2,
         "is_supervisor": false
       }
     },
@@ -25,7 +25,7 @@
       "fields": {
         "first_name": "Shane",
         "last_name": "Miller",
-        "departmendId": 1,
+        "departmentId": 1,
         "is_supervisor": false
       }
     },
@@ -34,8 +34,8 @@
       "pk": 4,
       "fields": {
         "first_name": "Misty",
-        "last_name": "Deramus",
-        "departmendId": 2,
+        "last_name": "DeRamus",
+        "departmentId": 2,
         "is_supervisor": false
       }
     }
