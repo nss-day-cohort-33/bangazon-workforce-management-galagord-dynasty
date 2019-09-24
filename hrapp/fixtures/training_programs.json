@@ -1,6 +1,6 @@
 [
   {
-    "model": "hrapp.training_program",
+    "model": "hrapp.trainingprogram",
     "pk": 1,
     "fields": {
       "title": "Shipping Standards and Best Practices",
@@ -11,7 +11,7 @@
     }
   },
   {
-    "model": "hrapp.training_program",
+    "model": "hrapp.trainingprogram",
     "pk": 2,
     "fields": {
       "title": "Payment Processing 101",
