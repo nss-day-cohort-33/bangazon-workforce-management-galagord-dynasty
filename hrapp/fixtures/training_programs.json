@@ -1,12 +1,24 @@
 [
-    {
-      "model": "hrapp.training_program",
-      "pk": 1,
-      "fields": {
-        "make": "Lenovo NoGo 2000",
-        "purchase_date": "2012-03-09",
-        "decommission_date": "2014-04-05"
-      }
+  {
+    "model": "hrapp.training_program",
+    "pk": 1,
+    "fields": {
+      "title": "Shipping Standards and Best Practices",
+      "description": "Learn best practices on the day to day of operations of the shipping department. We will review our standards and the do's and do nots of shipping.",
+      "start_date": "2019-09-04",
+      "end_date": "2019-09-14",
+      "capacity": 10
     }
-  ]
-  
+  },
+  {
+    "model": "hrapp.training_program",
+    "pk": 2,
+    "fields": {
+      "title": "Payment Processing 101",
+      "description": "Learn what payment methods we accept and how to interact with our lack of dual payments when interacting with customers.",
+      "start_date": "2019-10-04",
+      "end_date": "2019-10-14",
+      "capacity": 3
+    }
+  }
+]
