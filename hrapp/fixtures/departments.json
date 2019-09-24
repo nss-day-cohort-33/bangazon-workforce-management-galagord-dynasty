@@ -1,0 +1,34 @@
+[
+    {
+      "model": "hrapp.department",
+      "pk": 1,
+      "fields": {
+        "department": "Shipping",
+        "budget": "$4500.00"
+      }
+    },
+    {
+      "model": "hrapp.department",
+      "pk": 2,
+      "fields": {
+        "department": "payment",
+        "budget": "$123,345.73"
+      }
+    },
+    {
+      "model": "hrapp.department",
+      "pk": 3,
+      "fields": {
+        "department": "HR",
+        "budget": "$50,400.00"
+      }
+    },
+    {
+      "model": "hrapp.department",
+      "pk": 4,
+      "fields": {
+        "department": "IT",
+        "budget": "$3576.83"
+      }
+    }
+  ]
