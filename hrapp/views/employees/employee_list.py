@@ -2,6 +2,7 @@ import sqlite3
 from django.shortcuts import render
 from ..connection import Connection
 from hrapp.models import Employee
+from ..connection import Connection
 
 
 def employee_list(request):
