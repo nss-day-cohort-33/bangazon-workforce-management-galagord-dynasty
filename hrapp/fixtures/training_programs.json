@@ -1,0 +1,12 @@
+[
+    {
+      "model": "hrapp.training_program",
+      "pk": 1,
+      "fields": {
+        "make": "Lenovo NoGo 2000",
+        "purchase_date": "2012-03-09",
+        "decommission_date": "2014-04-05"
+      }
+    }
+  ]
+  
