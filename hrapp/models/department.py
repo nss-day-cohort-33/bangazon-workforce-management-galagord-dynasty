@@ -1,10 +1,12 @@
 from django.db import models
 
 class Department(models.Model):
-'''specific department information'''
+    '''
+    specific department information
+    '''
 
     department = models.CharField(max_length=100)
-    budget = models.DecimalField(max_digit = 7, decimal_places = 2)
+    budget = models.DecimalField(max_digits=10, decimal_places=2)
 
     class Meta:
         verbose_name = ("Department")
