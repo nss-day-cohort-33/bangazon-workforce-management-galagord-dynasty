@@ -4,7 +4,7 @@
       "pk": 1,
       "fields": {
         "department": "Shipping",
-        "budget": "$4500.00"
+        "budget": 4500.00
       }
     },
     {
@@ -12,7 +12,7 @@
       "pk": 2,
       "fields": {
         "department": "payment",
-        "budget": "$123,345.73"
+        "budget": 123345.73
       }
     },
     {
@@ -20,7 +20,7 @@
       "pk": 3,
       "fields": {
         "department": "HR",
-        "budget": "$50,400.00"
+        "budget": 50400.00
       }
     },
     {
@@ -28,7 +28,7 @@
       "pk": 4,
       "fields": {
         "department": "IT",
-        "budget": "$3576.83"
+        "budget": 3576.83
       }
     }
   ]
