@@ -2,6 +2,7 @@ import sqlite3
 from django.shortcuts import render
 from ..connection import Connection
 from hrapp.models import Department
+from hrapp.models import Employee
 
 def department_list(request):
     """Show all departments include budget and department size"""
@@ -15,11 +16,10 @@ def department_list(request):
             select
                 d.id,
                 d.department,
-                e.department_id,
                 d.budget,
-                d.employee
+                e.department_id
             from hrapp_department d
-            join department d.id on e.department_id
+            join hrapp_employee e on  e.department_id = d.id;
             """)
 
             all_departments = []
@@ -28,8 +28,9 @@ def department_list(request):
             for row in dataset:
                 department = Department()
                 department.id = row['id']
+                department.department = row['department']
                 department.budget = row['budget']
-                # employee.department = row['department']
+                # e.department_id = row['department_id']
 
                 all_departments.append(department)
 

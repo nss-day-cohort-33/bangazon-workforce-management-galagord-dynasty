@@ -6,12 +6,9 @@
 <ol>
 {% for department in departments %}
     <li>
-        <p>{{ department }}</p>
-        Department: {{department.department}}
-        <p>{{ budget }}</p>
-        Budget: {{department.budget}}
-        {% comment %} <p>{{ employee }}</p> {% endcomment %}
-        {% comment %} Department Size: {{department.employee}} {% endcomment %}
+        <p>Department: {{department.department}}</p>
+        <p>Budget: ${{department.budget}}</p>
+        <p>Department Size: {{department.employee}}</p>
     </li>
 {% endfor %}
 </ol>
