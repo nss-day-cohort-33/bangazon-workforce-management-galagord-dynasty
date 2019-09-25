@@ -10,9 +10,33 @@
 
     {% block css %}
     {% endblock %}
+    <style>
+        .navList {
+            list-style-type: none;
+            display: flex;
+            border: 1px solid lightgray;
+            padding: 1em;
+        }
+
+        .navList__route {
+            margin: 0 0.5em;
+        }
+    </style>
 </head>
 
 <body>
+<nav id="site-nav">
+        <ol class="navList">
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Home</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Departments</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Employees</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Computers</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Training Plans</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Login</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Logout</a></li>
+        </ol>
+    </nav>
+
 
     {% block content %}
     {% endblock %}
