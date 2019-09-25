@@ -1,0 +1,17 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+    <h1>Computers</h1>
+
+    <ul>
+    {% for computer in all_computers %}
+        <li>
+          {% comment %} <a href="{% url 'hrapp:computer' computer.id %}"> {% endcomment %}
+          {{ computer.manufacturer }} {{computer.model}}
+          {% comment %} </a> {% endcomment %}
+        </li>
+    {% endfor %}
+    </ul>
+
+{% endblock %}
