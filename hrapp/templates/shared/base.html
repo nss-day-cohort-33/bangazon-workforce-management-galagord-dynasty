@@ -19,8 +19,8 @@
             <li class="navList__route"><a href="{% url 'hrapp:home' %}">Home</a></li>
             <li class="navList__route"><a href="{% url 'hrapp:home' %}">Departments</a></li>
             <li class="navList__route"><a href="{% url 'hrapp:employee_list' %}">Employees</a></li>
-            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Computers</a></li>
-            <li class="navList__route"><a href="{% url 'hrapp:computer_list' %}">Training Plans</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:computer_list' %}">Computers</a></li>
+            <li class="navList__route"><a href="{% url 'hrapp:home' %}">Training Plans</a></li>
             {% if request.user.is_authenticated %}
                 <li class="navList__route"><a href="{% url 'hrapp:logout' %}">Logout</a></li>
             {% else %}

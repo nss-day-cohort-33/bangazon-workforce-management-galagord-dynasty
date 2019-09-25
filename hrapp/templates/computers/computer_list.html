@@ -7,9 +7,9 @@
     <ul>
     {% for computer in all_computers %}
         <li>
-          {% comment %} <a href="{% url 'hrapp:computer' computer.id %}"> {% endcomment %}
+          <a href="{% url 'hrapp:computers' computer.id %}">
           {{ computer.manufacturer }} {{computer.model}}
-          {% comment %} </a> {% endcomment %}
+          </a>
         </li>
     {% endfor %}
     </ul>
