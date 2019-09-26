@@ -19,3 +19,13 @@ def get_department_info():
         """)
 
         return db_cursor.fetchall()
+
+def department_form(request):
+    if request.method == 'GET':
+        departments = get_department_info()
+        template = 'departments/form.html'
+        context = {
+            'all_departments': departments
+        }
+
+        return render(request, template, context)
