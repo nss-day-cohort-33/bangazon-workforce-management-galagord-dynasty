@@ -1,0 +1,35 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+    <h1>Create New Training Program</h1>
+
+
+    <form action="{% url 'hrapp:training_programs' %}" method="post">
+      {% csrf_token %}
+      <fieldset>
+          <label for="title">Program Title: </label>
+          <input id="title" type="text" name="title">
+      </fieldset>
+      <fieldset>
+          <label for="description">Program Description: </label>
+          <!-- <textarea id="description"></textarea> -->
+          <input id ="description" type="text" name="description">
+      </fieldset>
+      <fieldset>
+        <label for="start_date">Start Date: </label>
+        <input id="start_date" type="date" name="start_date">
+    </fieldset>
+    <fieldset>
+        <label for="end_date">End Date: </label>
+        <input id="end_date" type="date" name="end_date">
+    </fieldset>
+    <fieldset>
+        <label for="capacity">Capacity: </label>
+        <input id="capacity" type="number" name="capacity">
+    </fieldset>
+
+      <input type="submit" value="Add It" />
+    </form>
+
+{% endblock %}

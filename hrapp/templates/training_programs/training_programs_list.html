@@ -1,0 +1,38 @@
+{% extends 'shared/base.html' %}
+{% load staticfiles %}
+
+{% block css %}
+<link rel="stylesheet" href="{% static 'styles/program_list.css' %}" type="text/css" media="screen" />
+{% endblock %}
+
+{% block content %}
+<h1>Training Programs</h1>
+<a href="{% url 'hrapp:program_form' %}"><h4>Create New Training Program</h4></a>
+<h2>Future Training</h2>
+<ol>
+{% for program in programs %}
+    {% if program.start_date > time.today %}
+    <li>
+        <p>{{ program.title }}</p>
+    </li>
+    {% endif %}
+{% endfor %}
+</ol>
+<button id="reveal_past" onclick="showPastPrograms()">Show Past Training</button>
+<div id="hidden" class>
+<h2>Past Training</h2>
+<ol>
+    {% for program in programs %}
+        {% if program.start_date < time.today %}
+        <li>
+            <p>{{ program.title }}</p>
+        </li>
+        {% endif %}
+    {% endfor %}
+</ol>
+</div>
+{% endblock content %}
+
+{% block scripts %}
+<script src="{% static 'scripts/program_list.js' %}"></script>
+{% endblock scripts %}
