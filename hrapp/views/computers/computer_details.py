@@ -14,12 +14,12 @@ def create_computer(cursor, row):
     computer.purchase_date = _row['purchase_date']
     computer.decommission_date = _row['decommission_date']
 
-    employee = Employee()
-    employee.id = _row['id']
-    employee.first_name = _row['first_name']
-    employee.last_name = _row['last_name']
+    # employee = Employee()
+    # employee.id = _row['id']
+    # employee.first_name = _row['first_name']
+    # employee.last_name = _row['last_name']
 
-    computer.employee = employee
+    # computer.employee = employee
 
     return computer
 
@@ -35,12 +35,8 @@ def get_computer(computer_id):
             c.manufacturer,
             c.model,
             c.purchase_date,
-            c.decommission_date,
-            e.first_name,
-            e.last_name
-        from hrapp_employeecomputer ec
-        join hrapp_computer c on c.id = ec.computer_id
-        join hrapp_employee e on e.id = ec.employee_id
+            c.decommission_date
+        from hrapp_computer c
         WHERE c.id = ?
         """, (computer_id,))
 

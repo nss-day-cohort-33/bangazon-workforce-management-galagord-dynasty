@@ -1,39 +1,88 @@
 import sqlite3
-from django.shortcuts import render
+from django.urls import reverse
+from django.shortcuts import render, redirect
 from hrapp.models import Computer
 from ..connection import Connection
+from datetime import datetime
 
 def computer_list(request):
-    with sqlite3.connect(Connection.db_path) as conn:
-        conn.row_factory = sqlite3.Row
-        db_cursor = conn.cursor()
+    if request.method == 'GET':
+        with sqlite3.connect(Connection.db_path) as conn:
+            conn.row_factory = sqlite3.Row
+            db_cursor = conn.cursor()
 
-        db_cursor.execute("""
-        select
-            c.id,
-            c.manufacturer,
-            c.model,
-            c.purchase_date,
-            c.decommission_date
-        from hrapp_computer c;
-        """)
+            db_cursor.execute("""
+            select
+                c.id,
+                c.manufacturer,
+                c.model,
+                c.purchase_date,
+                c.decommission_date
+            from hrapp_computer c;
+            """)
 
-        all_computers = []
-        dataset = db_cursor.fetchall()
+            all_computers = []
+            dataset = db_cursor.fetchall()
 
-        for row in dataset:
-            computer = Computer()
-            computer.id = row['id']
-            computer.manufacturer = row['manufacturer']
-            computer.model = row['model']
-            computer.purchase_date = row['purchase_date']
-            computer.decommission_date = row['decommission_date']
+            for row in dataset:
+                computer = Computer()
+                computer.id = row['id']
+                computer.manufacturer = row['manufacturer']
+                computer.model = row['model']
+                computer.purchase_date = row['purchase_date']
+                computer.decommission_date = row['decommission_date']
 
-            all_computers.append(computer)
+                all_computers.append(computer)
 
-    template = 'computers/computer_list.html'
-    context = {
-        'all_computers': all_computers
-    }
+        template = 'computers/computer_list.html'
+        context = {
+            'all_computers': all_computers
+        }
 
-    return render(request, template, context)
+        return render(request, template, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+        last_id = None
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+            start_date = datetime.today().strftime("%Y/%m/%d")
+            nothing = None
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_computer
+            (
+                manufacturer, model, purchase_date,
+                decommission_date
+            )
+            VALUES (?, ?, ?, ?)
+            """,
+            (form_data['manufacturer'], form_data['model'],
+                start_date, nothing))
+
+            db_cursor.execute("""
+            select last_insert_rowid()
+            """)
+
+            last_id = db_cursor.fetchone()
+
+        if form_data['employee'] != 'Null':
+            with sqlite3.connect(Connection.db_path) as conn:
+                db_cursor = conn.cursor()
+                start_date = datetime.today().strftime("%Y/%m/%d")
+                nothing = None
+
+                db_cursor.execute("""
+                INSERT INTO hrapp_employeecomputer
+                (
+                    assigned_date, unassigned_date, computer_id,
+                    employee_id
+                )
+                VALUES (?, ?, ?, ?)
+                """,
+                (start_date, nothing,
+                    last_id[0], form_data['employee']))
+
+
+        return redirect(reverse('hrapp:computer_list'))
