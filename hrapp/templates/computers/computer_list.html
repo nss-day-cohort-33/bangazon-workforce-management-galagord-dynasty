@@ -4,6 +4,8 @@
 
     <h1>Computers</h1>
 
+    <a href="{% url 'hrapp:computer_form' %}">Add Computer to Inventory</a>
+
     <ul>
     {% for computer in all_computers %}
         <li>
