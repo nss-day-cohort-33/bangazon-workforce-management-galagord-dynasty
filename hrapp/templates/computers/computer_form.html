@@ -3,22 +3,23 @@
 {% block content %}
 
     <h1>Inventory Computer</h1>
-        <form action="{% url 'hrapp:computer_form' %}" method="post">
+        <form action="{% url 'hrapp:computer_list' %}" method="post">
         {% csrf_token %}
         <fieldset>
-            <label for="manuacturer">Manufacturer: </label>
-            <input id="manuacturer" type="text" name="manuacturer" value="{{ computer.manuacturer }}">
+            <label for="manufacturer">Manufacturer: </label>
+            <input id="manufacturer" type="text" name="manufacturer" >
         </fieldset>
         <fieldset>
-            <label for="make">Make: </label>
-            <input id="make" type="text" name="make" value="{{ computer.make }}">
+            <label for="model">Model: </label>
+            <input id="model" type="text" name="model" >
         </fieldset>
         <fieldset>
             <label for="purchase_date">Purchase Date: </label>
-            <input id="purchase_date" type="date" name="purchase_date" value="{{ computer.purchase_date }}">
+            <input id="purchase_date" type="date" name="purchase_date" >
         </fieldset>
             <label for="employee">Assign to: </label>
             <select id="employee" type="text" name="employee">
+                <option value="Null"/>
                 {% for employee in all_employees %}
                 <option value="{{ employee.id }}">
                     {{ employee.first_name }} {{ employee.last_name }} </option>
