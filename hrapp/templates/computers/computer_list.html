@@ -7,7 +7,7 @@
     <ul>
     {% for computer in all_computers %}
         <li>
-          <a href="{% url 'hrapp:computers' computer.id %}">
+          <a href="{% url 'hrapp:computer_details' computer.id %}">
           {{ computer.manufacturer }} {{computer.model}}
           </a>
         </li>

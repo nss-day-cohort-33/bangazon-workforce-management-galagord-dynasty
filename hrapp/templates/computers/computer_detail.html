@@ -3,7 +3,6 @@
 {% block content %}
 
     <h1>{{ computer.manufacturer }} {{computer.model}}</h1>
-    <h2>Employee assigned to: {{ computer.first_name }} {{computer.last_name}} </h2>
-    {% comment %} <h2>Works at {{ computer.title }}</h2> {% endcomment %}
+    <h2>Assigned to: {{ computer.employee.first_name }} {{computer.employee.last_name}} </h2>
 
 {% endblock %}
