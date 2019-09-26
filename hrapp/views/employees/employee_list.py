@@ -1,9 +1,11 @@
 import sqlite3
 from django.shortcuts import render
 from hrapp.models import Employee
+from hrapp.models import Department
 from ..connection import Connection
 from django.urls import reverse
 from django.shortcuts import redirect
+
 
 
 def employee_list(request):
