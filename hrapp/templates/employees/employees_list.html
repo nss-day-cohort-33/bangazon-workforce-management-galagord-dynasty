@@ -4,10 +4,11 @@
 <h1>Employees</h1>
 
 <ol>
-{% for employee in employees %}
+{% for employee in all_employees %}
     <li>
         <p>{{ employee }}</p>
-        Current computer: {{employee.computer}}
+        <p>{{ employee.department_thing }}</p>
+        
     </li>
 {% endfor %}
 </ol>
