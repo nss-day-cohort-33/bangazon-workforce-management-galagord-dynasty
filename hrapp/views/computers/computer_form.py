@@ -22,10 +22,10 @@ def get_employees():
 
         db_cursor.execute("""
         select
-                e.id,
-                e.first_name,
-                e.last_name,
-            from hrapp_employee e
+            e.id,
+            e.first_name,
+            e.last_name
+        from hrapp_employee e;
         """)
 
         return db_cursor.fetchall()
@@ -33,7 +33,7 @@ def get_employees():
 def computer_form(request):
     if request.method == 'GET':
         employees = get_employees()
-        template = 'books/form.html'
+        template = 'computers/computer_form.html'
         context = {
             'all_employees': employees
         }
