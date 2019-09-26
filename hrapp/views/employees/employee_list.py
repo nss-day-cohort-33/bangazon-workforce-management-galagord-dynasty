@@ -3,6 +3,8 @@ from django.shortcuts import render
 from hrapp.models import Employee
 from hrapp.models import Department
 from ..connection import Connection
+from django.urls import reverse
+from django.shortcuts import redirect
 
 
 
@@ -46,3 +48,25 @@ def employee_list(request):
         }
 
         return render(request, template, context)
+
+    elif request.method == 'POST':
+        form_data = request.POST
+
+        with sqlite3.connect(Connection.db_path) as conn:
+            db_cursor = conn.cursor()
+
+            db_cursor.execute("""
+            INSERT INTO hrapp_employee
+                (
+            first_name, last_name, start_date, is_supervisor,
+            department_id
+                )
+            VALUES (?, ?, ?, ?, ?)
+                """,
+            (form_data['first_name'], form_data['last_name'],
+            form_data['start_date'], False, form_data['department']))
+
+        return redirect(reverse('hrapp:employee_list'))
+
+    
+    
