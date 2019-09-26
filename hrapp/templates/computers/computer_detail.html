@@ -1,0 +1,8 @@
+{% extends 'shared/base.html' %}
+
+{% block content %}
+
+    <h1>{{ computer.manufacturer }} {{computer.model}}</h1>
+    <h2>Assigned to: {{ computer.employee.first_name }} {{computer.employee.last_name}} </h2>
+
+{% endblock %}
